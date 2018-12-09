@@ -123,6 +123,11 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 
+# Email backend.
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+
 # DRF
 
 REST_FRAMEWORK = {
