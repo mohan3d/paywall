@@ -29,3 +29,11 @@ class PostListCreateView(generics.ListCreateAPIView):
 
     def perform_create(self, serializer):
         serializer.save(author=self.request.user)
+
+
+class PostListByCreatedView(generics.ListAPIView):
+    serializer_class = PostSerializer
+
+    def get_queryset(self):
+        timestamp = self.kwargs['timestamp']
+        return Post.objects.after(timestamp)
